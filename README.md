@@ -236,7 +236,7 @@ Now, you will create and configure a build job in Jenkins to trigger automatical
 
 1. Once the build succeeds, click the App URL in the console output to see the application homepage. You should see a Java web app page displayed.
 
-    ![Application](images/javawebapp.png)
+    ![Application](images/smh360app1.png)
 
 ## Exercise 6: Import code into IntelliJ and commit a change to trigger CI and CD in Jenkins
 
