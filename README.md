@@ -2,8 +2,7 @@
 
 ## Introduction
 
-If you are in a job of developing or deploying application, you’ve probably heard of Jenkins, a Continuous Integration (CI) server for automating software builds and deployments. Jenkins is extremely versatile and comes with lots of plugins that allow easy integration with many different platforms and source code management systems.
-
+If you are in a job of developing or deploying the application, you’ve probably heard of Jenkins, a Continuous Integration (CI) server for automating software builds and deployments. Jenkins is extremely versatile and comes with lots of plugins that allow easy integration with many different platforms and source code management systems.
 
 ## Architecture and Workflow
 
@@ -15,7 +14,7 @@ Jenkins then deploys the Java application to an Azure Web App which is backed by
 
 ## What's covered in this lab
 
-In this lab, you will learn how to setup import a public repository from Microsoft GitHub account, build the code in Jenkins and deploy the changes automatically on Azure Web App
+In this lab, you will learn how to set up import a public repository from Microsoft GitHub account, build the code in Jenkins and deploy the changes automatically on Azure Web App
 
 - Install and configure Jenkins
 - Fork a Microsoft GitHub repository to your GitHub account
@@ -29,7 +28,7 @@ In this lab, you will learn how to setup import a public repository from Microso
 1. [Putty](https://www.putty.org/), a free SSH and Telnet client.
 
 1. Follow the [Setting up Jenkins](https://www.azuredevopslabs.com/labs/vstsextend/jenkins/) 
-exercise to setup and configure Jenkins server on Azure.
+exercise to set up and configure Jenkins server on Azure.
 
 1. Download and install the Ultimate Trial edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/download-thanks.html) on your machine.
 
@@ -46,7 +45,7 @@ exercise to setup and configure Jenkins server on Azure.
 
 ## Exercise 1: Configure Jenkins Plugins
 
-Now that the Jenkins server is setup and configured for use, let's install and configure the plugins required for the lab. There are 3 plugins - *Maven Integration*, *Azure Credential plugin* and *Azure App Service* that are required for the lab. **Maven Integration** plugin helps to build projects that use Apache Maven in Jenkins. **Azure App Service** plugin provides Jenkins native capability to continuously deploy to Azure Web Apps.**Azure Credential plugin** is required to add Azure Service Principal in the Jenkins server.
+Now that the Jenkins server is configured for use, let's install and configure the plugins required for the lab. There are 3 plugins - *Maven Integration*, *Azure Credential plugin* and *Azure App Service* that are required for the lab. **Maven Integration** plugin helps to build projects that use Apache Maven in Jenkins. **Azure App Service** plugin provides Jenkins native capability to continuously deploy to Azure Web Apps.**Azure Credential plugin** is required to add Azure Service Principal in the Jenkins server.
 
 1. Access the Jenkins server, click **Manage Jenkins** on the home page and then choose **Manage Plugins**. Select the **Available** tab and search for `maven-plugin`. 
 
@@ -107,7 +106,7 @@ Now that the **Azure Service Principal** values are generated, you need to confi
 
 ## Exercise 3:  Fork code in GitHub and configure Webhook to notify changes to Jenkins
 
-Now that the Jenkins is setup and ready to use, let us fork a project from the Microsoft GitHub repository to your GitHub repository. Once the repository is forked, you will create a webhook to notify Jenkins to trigger a CI build whenever there is a commit on your GitHub repository.
+Now that the Jenkins is ready to use, let us fork a project from the Microsoft GitHub repository to your GitHub repository. Once the repository is forked, you will create a webhook to notify Jenkins to trigger a CI build whenever there is a commit on your GitHub repository.
 
 1. Sign-in to your GitHub account.
 
@@ -115,7 +114,7 @@ Now that the Jenkins is setup and ready to use, let us fork a project from the M
 
     ![fork repo](images/fork.png)
 
-1. Once forked, it automatically takes you to your GitHub repository. Click **Settings** to see a list of options availabe for the repository.
+1. Once forked, it automatically takes you to your GitHub repository. Click **Settings** to see a list of options available for the repository.
 
     ![GitHub Settings](images/github-settings.png)
 
@@ -138,7 +137,7 @@ Now that the Jenkins is setup and ready to use, let us fork a project from the M
 
     ![webhook config](images/webhookconfig.png)
 
-1. Once the changes are saved, you will see a success message in the page and the changes are tested with a ping to the Jenkins server. 
+1. Once the changes are saved, you will see a success message on the page and the changes are tested with a ping to the Jenkins server. 
     ![Changes](images/successmsg.png)
 
 1. If the test succeeds, you will see a *green tick* next to the created webhook in the same change.
@@ -149,7 +148,7 @@ Now that the Jenkins is setup and ready to use, let us fork a project from the M
 
 ## Exercise 4: Configure Azure Web App and Azure MYSQL database connection 
 
-After provisioning the Azure Web App and MYSQL database on the Azure portal, you have to configure the application's connection strings to point to the  Azure MYSQL database inorder to pull the data.
+After provisioning the Azure Web App and MYSQL database on the Azure portal, you have to configure the application's connection strings to point to the  Azure MYSQL database in order to pull the data.
 
 1. Click open the created *Azure Web App* on the Azure portal and click **Application settings** in the app's blade.
 
@@ -165,7 +164,7 @@ After provisioning the Azure Web App and MYSQL database on the Azure portal, you
 
     ![App Settings](images/javaappsettings.png)
 
-1. Now, you need to configure the application settings to fetch data from the Azure MYSQL database. Scroll down to **Application Settings** section in the same window.  You will see that there are some values already present. These are **Application Insights** values related to the web app. Enter the following details -
+1. Now, you need to configure the application settings to fetch data from the Azure MYSQL database. Scroll down to the **Application Settings** section in the same window.  You will see that there are some values already present. These are **Application Insights** values related to the web app. Enter the following details -
 
 **App Setting Name** | **Value**
    -----------------|------------
@@ -188,7 +187,7 @@ Now, you will create and configure a build job in Jenkins to trigger automatical
 
     ![Choose Maven type](images/choosemavenprjct.png)
 
-1. The next page is the project configuration page which allows you to define various aspects of the build. Click **Source Code Management** in the header and choose **Git**. Under the **Repository URL**, provide the URL of your GitHub repository to which the Microsoft project was forked. Credentials is not be required since you are using a public repository.
+1. The next page is the project configuration page which allows you to define various aspects of the build. Click **Source Code Management** in the header and choose **Git**. Under the **Repository URL**, provide the URL of your GitHub repository to which the Microsoft project was forked. Credentials are not be required since you are using a public repository.
 
     ![Repository](images/addrepo.png)
 
@@ -210,11 +209,11 @@ Now, you will create and configure a build job in Jenkins to trigger automatical
 
     ![Post Build Action](images/postbuildaction.png)
 
-1. In the resulting window, lets take a look at the various options available to configure settings to deploy the application to an Azure Web App that was provisioned in the beginning of this lab.
+1. In the resulting window, let's take a look at the various options available to configure settings to deploy the application to an Azure Web App that was provisioned at the beginning of this lab.
 
     ![Azure Configuration](images/azureconfig.png)
 
-1. Under **Azure Profile Configuration**, choose the **Azure Credentials** drop down. Choose the **Azure Service Principal** that was created the *Task 2 of the Exercise 2* .
+1. Under **Azure Profile Configuration**, choose the **Azure Credentials** drop down. Choose the **Azure Service Principal** that was created the *Task 2 of Exercise 2*.
 
     ![Azure Service Principal](images/myazuresp.png)
 
@@ -258,7 +257,7 @@ With the settings and properties being created, you will now import the GitHub r
 
     ![Project](images/projectexplorer2.png)
 
-1. Navigate to `src\resources\template` path in the project and double click the **login.html** code file to open it.
+1. Navigate to `src\resources\template` path in the project and double-click the **login.html** code file to open it.
 
     ![Login file path](images/loginhtml.png) 
 
@@ -304,9 +303,9 @@ With the settings and properties being created, you will now import the GitHub r
     
     ![Coupons](images/coupons.png)
 
-## Application Insights Telemetry
-
 ## Summary
+
+In this lab, you have learnt how to trigger a CI build with Jenkins from GitHub and deploy the code to an Azure Web App.
 
 
 
