@@ -154,7 +154,7 @@ After provisioning the Azure Web App and MYSQL database on the Azure portal, you
 
     ![Web App blade](images/webappblade.png)
 
-1. Since this is a Tomcat-based Java application, you have to change the settings of the Azure Web App to Java which otherwise is defaulted to .NET framework. Change the following values and click **Save** - 
+1. Since this is a Tomcat-based Java application, you have to change the settings of the Azure Web App to Java which otherwise is defaulted to .NET framework. Change the following values - 
 
     1. Java version  - `Java 8`
 
@@ -164,7 +164,7 @@ After provisioning the Azure Web App and MYSQL database on the Azure portal, you
 
     ![App Settings](images/javaappsettings.png)
 
-1. Now, you need to configure the application settings to fetch data from the Azure MYSQL database. Scroll down to the **Application Settings** section in the same window.  You will see that there are some values already present. These are **Application Insights** values related to the web app. Enter the following details -
+1. Now, you need to configure the application settings to fetch data from the Azure MYSQL database. Scroll down to the **Application Settings** section in the same window.  You will see that there are some values already present. These are **Application Insights** values related to the web app. Enter the following details and click **Save** -
 
 **App Setting Name** | **Value**
    -----------------|------------
